@@ -1,3 +1,4 @@
+
 public class Main {
     public static void main(String[] args) {
         // Crea un pedido para un cliente normal
@@ -9,7 +10,7 @@ public class Main {
         pedido2.procesarPedidoVIP(101);
 
         // Convierte al cliente 1 en VIP y procesa un nuevo pedido de 1000 €
-        pedido1.cliente.esVip = true;
+        pedido1.cliente.EsVip() = true;
         pedido1.procesarPedidoVIP(1000);
 
     }

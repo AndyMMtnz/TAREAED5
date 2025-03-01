@@ -4,6 +4,15 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    // Getter y setter para cliente
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public void procesarPedido(double total) {
         if (total > 100) {
             double descuento = total * 0.10;

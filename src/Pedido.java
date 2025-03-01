@@ -14,21 +14,20 @@ public class Pedido {
     }
 
     public void procesarPedido(double total) {
+        double descuento = 0;
+
         if (total > 100) {
-            double descuento = total * 0.10;
-            double precioFinal = total - descuento;
-            System.out.println("Pedido aprobado. Total: " + precioFinal + " (descuento aplicado: " + descuento + ")");
-        } else {
-            System.out.println("Pedido aprobado. Total: " + total);
+            if (cliente.isEsVip()) {
+                descuento = total * 0.15; // 15% de descuento para clientes VIP
+            } else {
+                descuento = total * 0.10; // 10% de descuento para clientes normales
+            }
         }
-    }
-    public void procesarPedidoVIP(double total) {
-        if (total > 100) {
-            double descuento = total * 0.15;
-            double precioFinal = total - descuento;
-            System.out.println("Pedido VIP aprobado. Total: " + precioFinal + " (descuento aplicado: " + descuento + ")");
-        } else {
-            System.out.println("Pedido VIP aprobado. Total: " + total);
-        }
+
+        double precioFinal = total - descuento;
+        String tipoPedido = cliente.isEsVip() ? "Pedido VIP" : "Pedido normal";
+
+        System.out.println(tipoPedido + " aprobado. Total: " + precioFinal +
+                (descuento > 0 ? " (descuento aplicado: " + descuento + ")" : ""));
     }
 }
